@@ -40,13 +40,6 @@ public class AccountCreationRequest {
     @Pattern(regexp = "(^$|[0-9]{8})", message = "Mobile number must be 8 digits")
     private String password;
 
-//    @NotEmpty(message = "Balance can not be empty")
-//    @Schema(
-//            description = "I&M account balance",
-//            example = "20000"
-//    )
-//    private Double balance;
-
     @Schema(
             description = "Role of the customer"
     )
