@@ -12,8 +12,8 @@ This is a banking application containing four microservices (api-gateway, custom
 2. Build the docker images with the following command for each of the service:
     ```bash
    mvn compile jib:dockerBuild
-3.Under the customer_service directory run the following command to start all the services:
- ```bash
+3. Under the customer_service directory run the following command to start all the services:
+     ```bash
    docker compose up -d
 
 
