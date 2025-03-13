@@ -84,7 +84,11 @@ Disaster Recovery
    Regularly test the disaster recovery plan to ensure readiness.
 
 
-
+## API Specifications
+To access the Swagger Documentation, after running the services, from the browser:
+ ```bash
+localhost:8081/swagger-ui/index.html -> viewing customer and accounts endpoints.
+localhost:8080/swagger-ui/index.html -> viewing transaction endpoints.
    
 
 
