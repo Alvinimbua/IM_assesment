@@ -1,0 +1,63 @@
+services:
+   postgres_db:
+      image: postgres
+      container_name: postgres_db
+      environment:
+         POSTGRES_USER: imbuka
+         POSTGRES_PASSWORD: postgres2549
+         POSTGRES_DB: im_bank
+      ports:
+         - "5432:5432"
+      networks:
+         - imbuka
+
+   customer_service:
+      image: "imbuka/customer_service:IM"
+      container_name: customer-ms
+      environment:
+         SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/im_bank
+         SPRING_DATASOURCE_USERNAME: imbuka
+         SPRING_DATASOURCE_PASSWORD: postgres2549
+      ports:
+         - "8080:8080"
+      depends_on:
+         -  postgres_db
+      deploy:
+         resources:
+            limits:
+               memory: 700m
+      networks:
+         - imbuka
+
+   notification_service:
+      image: "imbuka/notification_service:IM"
+      container_name: notification-ms
+      ports:
+         - "8082:8082"
+      deploy:
+         resources:
+            limits:
+               memory: 700m
+      networks:
+         - imbuka
+
+   transaction_service:
+      image: "imbuka/transaction_service:IM"
+      container_name: transaction-ms
+      environment:
+         SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/im_bank
+         SPRING_DATASOURCE_USERNAME: imbuka
+         SPRING_DATASOURCE_PASSWORD: postgres2549
+      depends_on:
+         - postgres_db
+      ports:
+         - "8081:8081"
+      deploy:
+         resources:
+            limits:
+               memory: 700m
+      networks:
+         - imbuka
+networks:
+   imbuka:
+      driver: "bridge"
