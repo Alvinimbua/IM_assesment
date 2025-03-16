@@ -15,18 +15,18 @@ public class AccountsDto {
     @Pattern(regexp = "(^$|[0-9]{10})", message = "Account number must be 10 digits ")
     @Schema(
 
-            description = "Account Number of Benki Account",
+            description = "Account Number of IM Account",
             example = "0987654321"
     )
     private Long accountNumber;
     @NotEmpty(message = "Account Type can not be null or empty")
     @Schema(
-            description = "Account Type of Benki Account", example = "Locked Savings Account"
+            description = "Account Type of IM Account", example = "Locked Savings Account"
     )
     private String accountType;
     @NotEmpty(message = "Branch Address can not be null or empty")
     @Schema(
-            description = "Benki Branch Address",
+            description = "IM Branch Address",
             example = "300 sky dale"
     )
     private String branchAddress;

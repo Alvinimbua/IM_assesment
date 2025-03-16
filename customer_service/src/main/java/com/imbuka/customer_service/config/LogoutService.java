@@ -33,6 +33,5 @@ public class LogoutService implements LogoutHandler {
             storedtoken.setRevoked(true);
             tokenRepository.save(storedtoken);
         }
-
     }
 }

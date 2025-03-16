@@ -34,12 +34,6 @@ public class UserDto {
     @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
     private String msisdn;
 
-
-//    @Pattern(regexp = "(^$|[0-9]{8})", message = "Password must be 8 digits")
-//    @Schema(
-//            description = "Password of the customer"
-//    )
-//    private String password;
     @Schema(
             description = "Role of the customer"
     )
